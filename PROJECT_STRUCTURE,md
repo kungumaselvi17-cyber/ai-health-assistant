@@ -1,175 +1,52 @@
-# Complete Project Structure
 
-```
 AI_Health_Assistant/
 │
-├── backend/                          # Python Flask Backend
-│   ├── app.py                       # Main Flask application with API endpoints
-│   ├── chatbot.py                   # Health chatbot logic and responses
-│   ├── prescription_reader.py       # OCR and prescription text analysis
-│   ├── utils.py                     # Helper utility functions
+├── backend/                         
+│   ├── app.py
+│   ├── chatbot.py                  
+│   ├── prescription_reader.py       
+│   ├── utils.py                     
 │   │
-│   ├── data/                        # Data storage
-│   │   └── health_data.csv         # Health knowledge database
+│   ├── data/                        
+│   │   └── health_data.csv        
 │   │
-│   ├── uploads/                     # Uploaded prescription images
+│   ├── uploads/                     
 │   │
-│   ├── requirements.txt             # Python dependencies
-│   ├── .env.example                # Environment variables template
-│   └── README.md                   # Backend documentation
+│   ├── requirements.txt             
+│   ├── .env.example                
+│   └── README.md                   
 │
-├── src/                             # React Frontend
+├── src/
 │   ├── components/
-│   │   ├── ChatInterface.tsx       # Chat UI component
-│   │   └── PrescriptionReader.tsx  # Prescription upload and analysis UI
+│   │   ├── ChatInterface.tsx       
+│   │   └── PrescriptionReader.tsx  
 │   │
-│   ├── App.tsx                     # Main React application
-│   ├── main.tsx                    # React entry point
-│   ├── index.css                   # Global styles with Tailwind
-│   └── vite-env.d.ts              # TypeScript definitions
+│   ├── App.tsx                     
+│   ├── main.tsx                    
+│   ├── index.css                   
+│   └── vite-env.d.ts              
 │
-├── public/                          # Static assets
+├── public/                         
 │
-├── dist/                           # Production build output (generated)
+├── dist/                           
 │
-├── node_modules/                   # Frontend dependencies (generated)
+├── node_modules/                   
 │
-├── start-backend.sh                # Unix/Mac backend startup script
-├── start-backend.bat               # Windows backend startup script
+├── start-backend.sh                
+├── start-backend.bat               
+├── package.json                    
+├── package-lock.json              
+├── vite.config.ts                
+├── tsconfig.json                  
+├── tsconfig.app.json             
+├── tsconfig.node.json            
+├── tailwind.config.js             
+├── postcss.config.js             
+├── eslint.config.js               
 │
-├── package.json                    # Frontend dependencies and scripts
-├── package-lock.json              # Locked frontend dependencies
-├── vite.config.ts                 # Vite configuration
-├── tsconfig.json                  # TypeScript configuration
-├── tsconfig.app.json              # App-specific TypeScript config
-├── tsconfig.node.json             # Node-specific TypeScript config
-├── tailwind.config.js             # Tailwind CSS configuration
-├── postcss.config.js              # PostCSS configuration
-├── eslint.config.js               # ESLint configuration
-│
-├── README.md                       # Main project documentation
-├── QUICKSTART.md                   # Quick start guide
-└── PROJECT_STRUCTURE.md           # This file
+├── README.md                       
+├── QUICKSTART.md                   
+└── PROJECT_STRUCTURE.md           
 ```
 
-## File Descriptions
 
-### Backend Files
-
-**app.py**
-- Flask web server
-- REST API endpoints for chat and prescription processing
-- File upload handling
-- CORS configuration
-
-**chatbot.py**
-- Health chatbot implementation
-- Knowledge base for symptoms, medications, and general health
-- Response generation logic
-- Conversation history tracking
-
-**prescription_reader.py**
-- OCR text extraction using Tesseract
-- Prescription text analysis
-- Medical term simplification
-- Medication detection and information
-
-**utils.py**
-- File validation functions
-- Text processing utilities
-- Timestamp formatting
-- Medical dosage parsing
-
-**data/health_data.csv**
-- Structured health knowledge database
-- Categories: symptoms, medications, general health
-- Easily extensible with new entries
-
-### Frontend Files
-
-**components/ChatInterface.tsx**
-- Interactive chat UI
-- Message display and input
-- Real-time conversation with backend
-- Loading states and error handling
-
-**components/PrescriptionReader.tsx**
-- File upload interface
-- Image preview
-- OCR results display
-- Prescription analysis visualization
-
-**App.tsx**
-- Main application layout
-- Tab navigation between Chat and Prescription Reader
-- Responsive design with Tailwind CSS
-
-### Configuration Files
-
-**package.json**
-- Frontend dependencies (React, TypeScript, Vite, Tailwind)
-- Build and development scripts
-- Project metadata
-
-**requirements.txt**
-- Backend Python dependencies
-- Flask, Pillow, pytesseract, Flask-CORS
-
-**vite.config.ts**
-- Vite build tool configuration
-- React plugin setup
-
-**tailwind.config.js**
-- Tailwind CSS customization
-- Content paths for purging unused styles
-
-## Key Features by File
-
-### Health Chat
-- `chatbot.py` - AI response logic
-- `ChatInterface.tsx` - User interface
-- `app.py` - `/api/chat` endpoint
-
-### Prescription Reading
-- `prescription_reader.py` - OCR and analysis
-- `PrescriptionReader.tsx` - Upload and display UI
-- `app.py` - `/api/upload-prescription` and `/api/analyze-prescription` endpoints
-
-### Data Management
-- `health_data.csv` - Knowledge base
-- `uploads/` - User uploaded files
-- `utils.py` - Data processing helpers
-
-## Technology Stack
-
-**Frontend:**
-- React 18 with TypeScript
-- Vite for build tooling
-- Tailwind CSS for styling
-- Lucide React for icons
-
-**Backend:**
-- Flask web framework
-- Tesseract OCR for text extraction
-- Pillow for image processing
-- Flask-CORS for API access
-
-## Development vs Production
-
-**Development:**
-- Frontend: `npm run dev` (Vite dev server on port 5173)
-- Backend: `python app.py` (Flask dev server on port 5000)
-
-**Production:**
-- Frontend: `npm run build` (generates static files in `dist/`)
-- Backend: Use Gunicorn or similar WSGI server
-
-## Extensibility
-
-The project is designed to be easily extended:
-
-1. **Add more health knowledge:** Edit `data/health_data.csv`
-2. **Add medications:** Update `medication_database` in `prescription_reader.py`
-3. **Add new features:** Create new components in `src/components/`
-4. **Add new endpoints:** Add routes in `app.py`
-5. **Customize styling:** Modify Tailwind classes in components
