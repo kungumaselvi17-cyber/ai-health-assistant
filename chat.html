@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Health Chatbot</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family: Arial;
+    background: pink;
+}
+
+/* HEADER */
+.header{
+    background:black;
+    color:white;
+    padding:15px;
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+}
+
+/* CHAT BOX */
+.chat-container{
+    width:90%;
+    max-width:600px;
+    margin:30px auto;
+    background:white;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+    display:flex;
+    flex-direction:column;
+    height:70vh;
+}
+
+/* MESSAGES AREA */
+.chat-box{
+    flex:1;
+    padding:15px;
+    overflow-y:auto;
+}
+
+/* USER MESSAGE */
+.user{
+    background:black;
+    color:white;
+    padding:10px;
+    margin:8px;
+    border-radius:10px;
+    text-align:right;
+}
+
+/* BOT MESSAGE */
+.bot{
+    background:#ffd6e0;
+    padding:10px;
+    margin:8px;
+    border-radius:10px;
+    text-align:left;
+}
+
+/* INPUT AREA */
+.input-area{
+    display:flex;
+    border-top:1px solid gray;
+}
+
+input{
+    flex:1;
+    padding:15px;
+    border:none;
+    font-size:16px;
+}
+
+button{
+    background:red;
+    color:white;
+    border:none;
+    padding:15px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:darkred;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+❤️ AI Health Assistant Chatbot
+</div>
+
+<div class="chat-container">
+
+    <div id="chatBox" class="chat-box"></div>
+
+    <div class="input-area">
+        <input type="text" id="userInput" placeholder="Ask health question...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+</div>
+
+<script>
+
+function sendMessage(){
+    let input = document.getElementById("userInput");
+    let message = input.value.trim();
+
+    if(message === "") return;
+
+    let chatBox = document.getElementById("chatBox");
+
+    // USER MESSAGE
+    chatBox.innerHTML += `<div class="user">${message}</div>`;
+
+    // SIMPLE AI RESPONSE
+    let reply = getAIResponse(message);
+
+    setTimeout(()=>{
+        chatBox.innerHTML += `<div class="bot">${reply}</div>`;
+        chatBox.scrollTop = chatBox.scrollHeight;
+    },500);
+
+    input.value="";
+}
+
+function getAIResponse(msg){
+
+    msg = msg.toLowerCase();
+
+    if(msg.includes("fever"))
+        return "Drink plenty of fluids and take rest. Consult a doctor if fever continues.";
+
+    if(msg.includes("headache"))
+        return "Take rest, stay hydrated, and avoid screen time.";
+
+    if(msg.includes("cold"))
+        return "Warm fluids and proper rest may help relieve cold symptoms.";
+
+    if(msg.includes("hello") || msg.includes("hi"))
+        return "Hello! I am your AI Health Assistant. How can I help you?";
+
+    return "I recommend consulting a healthcare professional for accurate advice.";
+}
+
+</script>
+
+</body>
+</html>
