@@ -1,75 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>AI Health Assistant</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Health Assistant</title>
 
-    <style>
-        body {
-            background-color: pink;
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            text-align: center;
-        }
+<style>
 
-        .container {
-            margin-top: 120px;
-        }
+/* ===== BODY ===== */
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(to right, #ffc0cb, #ffe4ec);
+    text-align:center;
+}
 
-        h1 {
-            color: black;
-            font-size: 50px;
-            font-weight: 900;
-            letter-spacing: 3px;
-        }
+/* ===== NAVBAR ===== */
+.navbar{
+    background:black;
+    padding:15px;
+    position:sticky;
+    top:0;
+}
 
-        p {
-            color: black;
-            font-size: 22px;
-            font-weight: bold;
-        }
+.navbar a{
+    color:white;
+    text-decoration:none;
+    margin:20px;
+    font-size:18px;
+    font-weight:bold;
+}
 
-        .heart {
-            color: red;
-            font-size: 80px;
-            animation: heartbeat 1s infinite;
-        }
+.navbar a:hover{
+    color:red;
+}
 
-        /* Heart animation */
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
-        }
+/* ===== HOME SECTION ===== */
+.container{
+    padding:80px 20px;
+}
 
-        .box {
-            background-color: black;
-            color: white;
-            padding: 20px;
-            margin: 30px auto;
-            width: 60%;
-            border-radius: 10px;
-            font-weight: bold;
-        }
-    </style>
+h1{
+    font-size:52px;
+    font-weight:900;
+    color:black;
+    letter-spacing:4px;
+}
+
+/* HEART */
+.heart{
+    font-size:90px;
+    color:red;
+    animation:beat 1s infinite;
+}
+
+@keyframes beat{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.25);}
+    100%{transform:scale(1);}
+}
+
+/* INFO BOX */
+.box{
+    background:black;
+    color:white;
+    width:65%;
+    margin:30px auto;
+    padding:25px;
+    border-radius:15px;
+    font-size:20px;
+    font-weight:bold;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* BUTTON */
+button{
+    background:red;
+    color:white;
+    border:none;
+    padding:15px 30px;
+    font-size:18px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:darkred;
+}
+
+/* ===== ABOUT SECTION ===== */
+.section{
+    padding:60px 20px;
+}
+
+.section h2{
+    font-size:36px;
+    color:black;
+}
+
+.section p{
+    font-size:20px;
+    font-weight:bold;
+}
+
+/* ===== FOOTER ===== */
+footer{
+    background:black;
+    color:white;
+    padding:20px;
+    margin-top:40px;
+}
+
+</style>
 </head>
 
 <body>
 
-<div class="container">
+<!-- NAVIGATION -->
+<div class="navbar">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+</div>
+
+<!-- HOME -->
+<div id="home" class="container">
 
     <div class="heart">❤️</div>
 
     <h1>AI HEALTH ASSISTANT</h1>
 
     <div class="box">
-        Welcome to my AI Health Assistant Project.<br>
-        This system helps users understand health information easily.
+        An intelligent system that helps users understand
+        health information and medical prescriptions easily
+        using Artificial Intelligence.
     </div>
 
-    <p>Made with ❤️ using AI</p>
+    <button onclick="startAssistant()">Start Assistant</button>
 
 </div>
+
+<!-- ABOUT -->
+<div id="about" class="section">
+    <h2>About Project</h2>
+    <p>
+        AI Health Assistant reads prescriptions,
+        explains medical terms, and provides simple
+        health guidance using AI technology.
+    </p>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="section">
+    <h2>Contact</h2>
+    <p>Email: aihealthassistant@gmail.com</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    Made with ❤️ using AI | © 2026 AI Health Assistant
+</footer>
+
+<script>
+function startAssistant(){
+    alert("Welcome! AI Health Assistant will start soon.");
+}
+</script>
 
 </body>
 </html>
